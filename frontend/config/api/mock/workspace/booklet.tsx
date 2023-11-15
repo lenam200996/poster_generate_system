@@ -1,0 +1,200 @@
+import {
+  BookletDetailResponseDto,
+  DocumentResponseDto,
+  PageForBookletDto,
+} from "@/openapi"
+
+export type PageType =
+  | "HOTEL_MANUSCRIPT"
+  | "CHAPTER_TITLE_PAGE"
+  | "ADVERTISEMENT"
+  | "INFORMATION"
+export type DocumentType = "HOTEL_MANUSCRIPT" | "HEAD_LINE" | "FILLER"
+export type Order = 1 | 2 | 3 | 4
+export type DocumentSizeType = "ONE_ONE" | "ONE_TWO" | "ONE_FOUR"
+export type LayoutPattern = "A" | "B" | "C" | "D" | "E"
+
+export const document: DocumentResponseDto = {
+  id: 1,
+  projectId: 1,
+  bookletId: 1,
+  pageId: 1,
+  documentTypeCode: "HOTEL_MANUSCRIPT",
+  documentSizeCode: "ONE_ONE",
+  documentCode: "Y202206ES00001",
+  pageNumber: 3,
+  hotelCode: "1111",
+  statusCode: "NOT_START",
+  modifierPersonCognito: "山田 太郎",
+  salesPersonCognito: "長谷川 あゆみ",
+  manuscriptPersonCognito: "",
+  manuscriptPerson: {
+    personCognito: "",
+    isFired: false,
+    isSales: false,
+    isManuscript: true,
+    personName: "",
+    authorityLevel: 3,
+  },
+  order: 1,
+  jalanCode: "",
+  createdAt: "",
+  modifiedAt: "",
+  documentContent: {
+    id: 1,
+    documentId: 1,
+    hotelNameLarge: "ソラリア西鉄ホテル銀座",
+    salesStartDate: "",
+    salesEndDate: "",
+  },
+}
+
+export const page: PageForBookletDto = {
+  id: 1,
+  projectId: 1,
+  bookletId: 1,
+  layoutAlphabet: "C",
+  pageNumber: 3,
+  pageTypeCode: "HOTEL_MANUSCRIPT",
+  mountId: 1,
+  createdAt: "",
+  modifiedAt: "",
+  deletedAt: null,
+  documents: [document],
+  thumbIndexImageGroupId: "",
+}
+
+export const booklet: BookletDetailResponseDto = {
+  id: 1,
+  documents: [document],
+  editionCode: "HOKKAIDO",
+  projectId: 1,
+  numberOfPages: 20,
+  locked: false,
+  documentSerialNumber: 1,
+  createdAt: "",
+  modifiedAt: "",
+  masterEditionCode: {
+    code: "HOKKAIDO",
+    name: "北海道",
+    kana: "ホッカイドウ",
+  },
+  project: {
+    id: 1,
+    mediaTypeCode: "MAGAZINE",
+    mediaType: {
+      code: "MAGAZINE",
+      name: "ゆこゆこ本誌",
+      kana: "ユコユコホンシ",
+      description: "本誌の説明",
+    },
+    issueYear: 2022,
+    issueMonth: 1,
+    salesStartDate: "2022-02-02T00:00:00.000Z",
+    salesEndDate: "2022-04-04T00:00:00.000Z",
+    reviewRatingStartDate: "2022-03-03T00:00:00.000Z",
+    reviewRatingEndDate: "2022-03-03T00:00:00.000Z",
+    openAirIconOn: null,
+    openAirIconOff: null,
+    freeFlowingIconOn: null,
+    freeFlowingIconOff: null,
+    elevatorIconOn: null,
+    elevatorIconOff: null,
+    sameDayReservationIconOn: null,
+    sameDayReservationIconOff: null,
+    pickUpAvailableIconOn: null,
+    pickUpAvailableIconOff: null,
+    noSmokingIconOn: null,
+    noSmokingIconOff: null,
+    dinnerVenueMeal: null,
+    dinnerPrivateRoomDining: null,
+    dinnerRoomMeal: null,
+    dinnerVenueMealOorPrivateDiningRoom: null,
+    dinnerVenueMealOrRoomService: null,
+    dinnerRoomOrPrivateDiningRoom: null,
+    dinnerNone: null,
+    breakfastVenueMeal: null,
+    breakfastPrivateRoomDining: null,
+    breakfastRoomMeal: null,
+    breakfastVenueMealOorPrivateDiningRoom: null,
+    breakfastVenueMealOrRoomService: null,
+    breakfastRoomOrPrivateDiningRoom: null,
+    breakfastNone: null,
+    issueDataImage: null,
+    createdAt: "2023-03-30T07:39:41.388Z",
+    modifiedAt: "2023-03-30T07:39:41.388Z",
+    deletedAt: null,
+    headLineId: null,
+    thumbIndexId: null,
+    consumptionTax: "TAX_INCLUDED",
+    tax: 1.1,
+  },
+  pages: [
+    {
+      ...page,
+      id: 1,
+      pageNumber: 3,
+      layoutAlphabet: "A",
+      pageTypeCode: "HOTEL_MANUSCRIPT",
+      documents: [
+        {
+          ...document,
+          id: 1,
+          documentCode: "Y202206ES00001",
+        },
+      ],
+    },
+    {
+      ...page,
+      id: 2,
+      pageNumber: 5,
+      layoutAlphabet: "B",
+      pageTypeCode: "HOTEL_MANUSCRIPT",
+      documents: [
+        {
+          ...document,
+          id: 2,
+          documentCode: "Y202206ES00002",
+        },
+      ],
+    },
+    {
+      ...page,
+      id: 3,
+      pageNumber: 7,
+      layoutAlphabet: "E",
+      pageTypeCode: "HOTEL_MANUSCRIPT",
+      documents: [
+        {
+          ...document,
+          id: 3,
+          documentCode: "Y202206ES00003",
+          documentTypeCode: "HOTEL_MANUSCRIPT",
+          documentSizeCode: "ONE_FOUR",
+          order: 3,
+        },
+      ],
+    },
+    {
+      ...page,
+      id: 4,
+      pageNumber: 9,
+      pageTypeCode: "CHAPTER_TITLE_PAGE",
+      documents: [],
+    },
+    {
+      ...page,
+      id: 5,
+      pageNumber: 10,
+      pageTypeCode: "ADVERTISEMENT",
+      documents: [],
+    },
+    {
+      ...page,
+      id: 6,
+      pageNumber: 11,
+      pageTypeCode: "INFORMATION",
+      documents: [],
+    },
+  ],
+}

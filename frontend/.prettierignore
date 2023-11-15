@@ -1,0 +1,7 @@
+designTokens/
+tailwind.config.js
+openapi
+open_api.yml
+.gitignore
+src/aws-exports.js
+.next
